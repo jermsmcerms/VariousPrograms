@@ -1,0 +1,33 @@
+
+    printf("hello from linked list!\n");
+    struct LinkedList* list = NULL;
+    list = CreateList();
+    
+    if(!list) {
+        printf("failed to create list!");
+        return 1;
+    }
+ 
+    Push(list, 1);
+    Push(list, 2);
+    Push(list, 3);
+    
+    Node* head = list->head;
+    for(int i = 0; i < list->size; i++) {
+        printf("data: %i\n", head->data);
+        head = head->next;
+    }
+
+    Node* node = Pop(list);
+    printf("Data: %i\n", node->data);
+    printf("Size: %i\n", list->size);
+
+    Clear(list);
+
+    if(list->size == 0) {
+        printf("list cleared\n");
+        list = NULL;
+        if(!list) {
+            printf("list deleted\n");
+        }
+    }
